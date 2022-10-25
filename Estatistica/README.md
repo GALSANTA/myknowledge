@@ -42,9 +42,6 @@ Sou Fernando Gabriel M. da Silva, atualmente estudante de computação pela UFCG
 
 Atualmente a Estatística é uma ciência moderna que fornece ferramentas para lidar com problemas de tomada de decisão com base em dados das mais diversas áreas do conhecimento. De modo geral, podemos dizer que a essência da ciência é a _observação_ e que seu objetivo básico é a _inferência_. A Estatística é uma ciência que se preocupa com a coleta, organização, descrição,análise e interpretação dos dados, a fim de extrair informações a respeito de uma população.
 
-## 2. Introdução à probabilidade.
-
-
 
 
 ## 2. Conceitos básicos
@@ -116,7 +113,8 @@ Coluna variável server para listar os valores (ou categorias) distinos assumido
 
 
 $\dfrac{x}{y}$
-$\Omega$
+
 $\subset$	
 $\forall$	
 $\neq$
+
