@@ -3,9 +3,8 @@
 
 ## 1.1 Sobre Autômatos Finitos
 
-<br/>
-
 ### 1.1.1 Conceitos inicias:
+<br/>
 
 #### **Alfabeto ( $\Sigma$ )**: Um alfabeto é um conjunto finito de símbolos.
 Exemplos:
