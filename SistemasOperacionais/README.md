@@ -156,8 +156,41 @@ int main() {
 ```
 ### Semáforos
 
+É uma variável utilizada para controlar acesso a recursos compartilhados
+
+semaforo = 0 não há recuso livre
+semaforo > 0 recurso livre
 
 
+wait 
+
+verifica sre o valor do semaforo é maior que 0
+
+se for, semafodo = semaforo -1, executa 
+se for 0, o processo que executou o wait é colocado para dormir, sem completar o wait
+
+signal 
+
+semaforo = semaforo +1
+
+se há processos dormindog nesse semaforo escolhe um deles e o desbloqueia ()
+nesse cado o valor do semaforo permanece o mesmo,
+
+
+### DeadLocks
+
+Segundo Tanenbaum, deadlock pode ser definido como: “Um conjunto de processos estará em situação de deadlock se todo processo pertencente ao conjunto estiver esperando por um evento que somente um outro processo desse mesmo conjunto poderá fazer acontecer”.
+
+De uma forma mais simples, para melhor entendimento, podemos dizer que deadlock é um termo empregado para traduzir um problema ocorrido quando um grupo de processos competem entre si. A ocorrência do deadlock depende das características de dois ou mais programas diferentes e dos respectivos processos a executar pelos diferentes programas ao mesmo tempo. Pode ser, que esses processos possam ser executados de forma repetitiva usando diferentes processos sem que ocorra deadlock, todavia, basta um único processo padrão complicado para entrar em situação de deadlock.
+
+Mesmo não relacionado a computação, podemos citar um exemplo de situação de deadlock que facilita o entendimento do que seja uma situação de deadlock. Dois carros estão seguindo em direções opostas, um de encontro ao outro, em uma pista que permite apenas a passagem de um veículo. Nesse caso os dois ficam impedidos de continuar seu percurso.
+
+Existem quatro condições para a ocorrência de deadlock:
+
+Condição de exclusão mútua. Em um determinado instante, cada recurso está em uma de duas situações: ou associado a um único processo ou disponível.
+Condição de posso e espera. Processos que, em um determinado instante, retêm recursos concedidos anteriormente podem requisitar novos recursos.
+Condição de não preempção. Recursos concedidos previamente a um processo não podem ser tomados a força desse processo, eles devem ser explicitamente liberados pelo processo que os retém.
+Condição de espera circular. Deve existir u encadeamento circular de dois ou mais processos; cada um deles encontra-se à espera de um recurso que está sendo usado pelo membro seguinte dessa cadeia.
 
 
 
