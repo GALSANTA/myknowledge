@@ -125,7 +125,7 @@ Em aritmética, os objetos básicos são npumeros e as ferramentas são operaç�
 
 Exemplo 1: Suponha um alfabetgo $\Sigma$ seja o alfabeto padrão de 26 letras {a,b,c,...,z}. Se A = {legal, ruim} e B = {garoto, garota}, então:
 
-* A $\cup $ B = {legal, ruim, garoto, garota}
+* $A \cup B$ = {legal, ruim, garoto, garota}
 * A $\bullet$ B = {legalgaroto, legalgarota, ruimgaroto, ruimgarota}
 * $A^*$ = { $\lambda$, legal, ruim, legallegal, legalruim, ruimlegal, ruimruim, legallegallegal, ...}
 
