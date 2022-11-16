@@ -27,7 +27,6 @@ Sou Fernando Gabriel M. da Silva, atualmente estudante de computação pela UFCG
             </li>
         </ul>
     <li> Linguagens Livres-do-Contexto </li>
-    
 </ol>
 
 ## Referências

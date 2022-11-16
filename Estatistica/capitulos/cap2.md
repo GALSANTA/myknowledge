@@ -1,97 +1,30 @@
-## 2. Introdução à probabilidade.
+<h1 align="center">2. Conceitos básicos da ciência estatística</h1>
+<br/>
 
-## 2.1 Conceitos iniciais
+## 2.1 Subdivisões da ciência estatística.
 
-### **Esperimento Determinístico**: São experimentos os quais repetidos sob mesmas condições levam ao mesmo resultado.
+**Estatística Descritiva:** se preocupa com a coleta, organização e descriçãodos dados experimentais.
 
-### **Experimento Aleatório ($\epsilon$)**: São experimentos os quais quando repetidos sob mesmas condições levam a resultados geralmentes diferentes.
+**Estatística Inferencial**: realiza a análise e interpretação de dados, a partirda observação de alguns dados experimentais, com o objetivo degeneralizar e prever resultados, utilizando-se para isto da Teoria das Probabilidades.
 
-### **Espaço Amostral ($\Omega$)**: Ao conjunto de todos os possíveis resultados de um experimento aleatório damos o nome de espaço amostral.
+## 2.2 População, Amostra, Censo e Amostragem.
 
-### **Evento**: Seja $\Omega$ um espaço amostral associado a um esperimento $\epsilon$. Um evevto é quaisquer subconjunto desse espaço amostral, podendo assumir quaisquer notação.
+**População**: é um conjunto de todos os elementos (pessoas, objetos, ...) que possuem pelo menos uma _característica em comum_, a(s) qual(is) os relacionam ao problema que está sendo estudado.
 
-### **Eventos Mutuamente Excludentes (ou disjuntos)**: Dois eventos A e B são ditos mututamente excludentes (ou disjuntos) se lees não puderem ocrrer simultaneamente, ou seja, $ A \cup B = \oslash $.
+**Amostra**: é apenas uma parte da população, ou seja, é qualquer _subconjunto_ não vazio da população.
 
-### **Leis de De Morgam**:
+**Censo**: levantamento de dados referentes a todos os elementos de uma _população_.
 
-* $(A \cup B)^c  = A^c \cap B^c $
-*  $(A \cap B)^c = A^c \cup B^c $
+**Amostragem**: levantamento de dados referentes a todos os elementos de uma _amostra_.
 
-### **Exercícios**:
+## 2.3. Tipos de variáveis.
 
-**Exercício 1**: Considere o fenômeno aleatório que consiste em lançar um dado honesto. Sejam os seguintes eventos. </br>
-a) A: ocorrer um número ímpar. </br>
-b) B: ocorrer um número par. </br>
-c) C: ocorrer um número maior que 3. </br>
-d) Os eventos A e B são disjuntos? </br>
-e) Os eventos A e C não são disjuntos? </br>
-f) Os eventos B e C não são disjuntos?
+A _variável_ é uma característica associada a cada elemento da população ou da amostra. A variável apresenta diferentes valores, quando sujeita amensurações sucessivas, e, em geral, é denotada pelas letras maiúsculasdo nosso alfabeto. Antes de realizar qualquer tratamento estatístico de um conjunto de dados, é importante _identificar_ qual é o _tipo de dado_ (ou variável) que será analisado, pois, é mediante a este conhecimento que o pesquisador poderá ou não adotar determinadas técnicas estatísticas para a resolução de problemas. Os tipos de variáveis podem ser resumido em:
 
-> **Respostas Exercício 1**: </br>
-a) A = {1,3,5} </br>
-b) B = {2,4,6} </br>
-c) C = {4,5,6} </br>
-d) Sim, A  $\cap$ B = $\oslash$ </br>
-e) Sim, A  $\cap$ C = {5} $\neq$ $\oslash$ </br> 
-f) Sim, B  $\cap$ C = {4,5} $\neq$ $\oslash$
+* **Variável Qualitativa Nominal**: São variáveis que indicam qualidade (ou atributo) do indivíduo pesquisado para qual não existe nenhuma ordenação. São exemplos: cor dos olhos (azul, verde, castanho), sexo, educação, estado civil, etc.
 
-**Exercício 2**: Lança-se um dado e observa-se o número da face superior. Considere este experimento aleatório e os eventos a seguir:
+* **Variável Qualitativa Ordinal**: São variáveis que indicam qualidade (ou atributo) do indivíduo pesquisado para qual existe ordenação. São exemplos: classe social (alta, média, baixa), nível de escolaridade (fundamental, médio, superior).
 
- * A: O número da face superior ser par.
- * B: O número da face superior ser menor que 4.
+* **Variável Quantitativa Discreta**: São variáveis quantitativas discreta aquelas que podem sofrer uma classificação dicotômica cujos possíveis valores formam um conjunto finito e enumerável de números. São exemplos: numero de filhos, número de acesso ao site, etc.
 
-Determine em notação de conjuntos os seguintes eventos:
-
-a) $A \cup B$ </br>
-b) $A \cap B$ </br>
-c) $A^c$ </br>
-d) $B^c$ </br>
-e) $(A \cup B)^c$ </br>
-f) $(A \cap B)^c$ </br>
-g) $A^c \cup B^c$ </br>
-h) $A^c \cap B^c$ </br>
-i) $A^c - B^c = A \cap B^c$  </br>
-j) $B - A = B \cap A^c$  </br>
-
-> **Respostas Exercício 2**: </br>
-Sabendo que $\Omega$ = {1,2,3,4,5,6}, que A = {2,4,6} e que B = {1,2,3}. </br></br>
-a) $A \cup B$ = {1,2,3,4,6}</br>
-b) $A \cap B$  = {2} </br> 
-c) $A^c$ = {1,3,5} </br>
-d) $B^c$ = {4,5,6} </br>
-e) $(A \cup B)^c$ = {5} </br>
-f) $(A \cap B)^c$ = {1,3,4,5,6} </br>
-g) $A^c \cup B^c$ = {1,3,4,5,6}</br>
-h) $A^c \cap B^c$ = {5}</br>
-i) $A^c - B^c = A \cap B^c$ = {4,6}  </br>
-j) $B - A = B \cap A^c$ = {1,3} </br>
-
-
-## 2.2. Teoria das probabilidades: Abordagem clássica.
-
-### Modelo probabilístico
-
-Em resumo, todo fenômeno aleatório terá seu modelo probabilístico especificado quando estabelecermos:
-
-a) Um espaço amostral ($\Omega$) que consiste, no caso discreto, da enumeração (finita ou infinita) de todos os resultados possíveis do fenômeno em questão. $\Omega$= {$\omega_1,  \omega_2, ..., \omega_n, ...$}
-
-b) Uma probabilidade, P($\omega_i$) para cada ponto amostral $\omega_i$ , de modo que seja possível encontrar a probabilidade P(A) de qualquer subconjunto (evento) A de $\Omega$.
-
-### Abordagem clássica definição
-
-Se $\Omega$ for um Espaço Finito e Equiprovável podemos utilizar a abordagem clássica para definir a probabilidade de um evento A $\subset \Omega$.
-
-Seja $\Omega$ um espaço amostral finito, 00$\Omega$ = {$\omega_1,  \omega_2, ..., \omega_n$}, em que todos os
-pontos amostrais têm mesma probabilidade 1/n. Se A for um evento com m pontos amostrais, então:
-
-m = número de casos favoráveis à ocorrência do evento A
-
-n = número de casos possíveis
-
-$\dfrac{m}{n} = \dfrac{A}{\Omega}$
-
-### Espaços amostrais finitos
-
-## 2.3. Teoria das probabilidades: Abordagem Axiomática.
-
-## 2.4. Teoria das probabilidades: Probabilidade Condicional.
+* **Variável Quantitativa Contínua**: São variáveis quantitativas contínua aquelas que podem sofrer uma classificação dicotômica cujos possíveis valores pertecem a um intervalo de números reais e que resultam de uma mensuração. São exemplos: estatura e peso de um indivíduo, tempo de vida de um equipamento eletrônico, etc.

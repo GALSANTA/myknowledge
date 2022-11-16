@@ -1,4 +1,4 @@
-<h1 align="center"> Autômatos e Linguagens </h1> 
+<h1 align="center"> Linguagens regulares </h1> 
 
 
 ## 1.1 Sobre Autômatos Finitos
@@ -119,7 +119,7 @@ Em aritmética, os objetos básicos são npumeros e as ferramentas são operaç�
 * União:  $A \cup B$  =  { $x$ $\epsilon$ $A$ ou $x$ $\epsilon$ $B $} 
 * Concatenação: $A \bullet B$  = { $xy$ | $x$  $\epsilon$ $A$ e $y$ $\epsilon$ $B$} 
 * Estrela: $A^*$ = { $x_1x_ 2 x_ 3...x_ k$ | k $\ge$ 0 e cada $x_i$ $\epsilon$ A}
-* Interseção: = { $x$ $\epsilon$ $A$ e $x$ $\epsilon$ $B $}
+* Interseção: =  $A \cap B$  = { $x$ $\epsilon$ $A$ e $x$ $\epsilon$ $B $}
 * Complemento: $\bar A$ = {}
 
 Exemplo 1: Suponha um alfabetgo $\Sigma$ seja o alfabeto padrão de 26 letras {a,b,c,...,z}. Se A = {legal, ruim} e B = {garoto, garota}, então:
@@ -166,4 +166,160 @@ Segundo, em um AFD, os rótulos sobre as setas de transição são simbolos dos 
 
 <br/>
 
-### 1.2.2 Como um AFN computa?
+### 1.3.2 Como um AFN computa?
+
+Suponha que você esteja rodando um AFN sobre uma cadeia de entrada e venha para um estado com múltiplas maneiras de prosseguir. (pagina 49)
+
+
+Exemplo: Vamos considerar a figura da secção 1.2.1. A computação do AFN sobre uma entrada 010110 é exemplificada abaixo.
+<center>
+
+```mermaid
+  stateDiagram-v2
+    d1: q1
+    d11: q1
+    d12: q1
+    d13: q1
+    d14: q1
+    d15: q1
+    d16: q1
+    d2: q2
+    d21: q2
+    d22: q2
+    d3: q3
+    d31: q3
+    d32: q3
+    d33: q3
+    d34: q3
+    d4: q4
+    d41: q4
+    d42: q4
+    d43: |q4|
+    d44: |q4|
+      [*] --> d1
+      d1-->d11: 0
+      d11-->d12: 1
+      d11--> d2:1
+      d11--> d3:1
+      d12--> d13:0
+      d2--> d31:0
+      d13--> d14:1
+      d13--> d21:1
+      d13--> d32:1
+      d31--> d4:1
+      d14--> d15:1
+      d14--> d22:1
+      d14--> d33:1
+      d32-->d41:1
+      d4-->d42:1
+      d15-->d16:0
+      d22-->d34:0
+      d42-->d43:0
+      d41-->d44:0
+```
+</center>
+
+### 1.3.3 Definição formal de autômato não-determinístico
+
+A definição formal de um autômato finito não-determinístico é similar àquela de um autômato finito determinístico. Ambos têm estados, um alfabeto de entrada, uma função de transição, um estado inicial e uma coleção de estados de aceitação. Entretando, eles diferem de uma maneira essencial: no tipo de função de transição. Em um AFD a função de transição toma um estado e um símbolo de entrada e produz o próximo estado. Em um AFN a função de transição toma um estado e um símbolo de entrada _ou uma cadeia vazia_ e produz _o conjunto de próximos estados possíveis_.
+
+Formalmente, um AFN é uma 5-tupla <Q, $\Sigma$, $\delta$ , q0, F>, onde:
+
+* Q é um conjunto finito de **estados**
+* $\Sigma$ é um ***alfabeto finito**
+* δ : Q X $\Sigma_\epsilon$ $\rightarrow$ P(Q) é a função e **transição** do autômato.
+* q0 $\epsilon$ Q é o **estado inicial**
+* F  $\subseteq$ Q é o conjunto de **estados finais**
+
+<br/>
+
+### 1.3.4 Equivalência de AFN's e AFD's
+
+Os autômatos finitos determinísticos e não-determinístico reconhecem a mesma classe de linguagens. Essa equivalência é, ao mesmo tempo, supreendente e útil. É supreendente porque AFN's parecem ter mais poder que AFD's e, portanto, poderíamos esperar que AFN's reconhecessem mais linguagens. É util porque descrever um AFN para uma dada linguagem às vezes é muitos mais fácil que descrever um AFD para essa linguagem.
+
+**Teorema**: Todo autômato finito não-determinístico tem um  autômato finito determinístico equivalente.
+
+**Corolário**: Uma linguagem é regular se e somente se algum  autômato finito não-determinístico a reconhece.
+
+Exemplo: Vamos ilustrar o procedimento para transformar um AFN em AFD usando uma máquina $N_1$ abaixo. Sendo $N_1$ = (Q, {a,b}, $\delta$, 1, {1}), então temos:
+
+<center>
+
+```mermaid
+  stateDiagram-v2
+  direction LR
+    q1:|1|
+    q2: 2
+    q3: 3
+      [*] --> q1
+      q1-->q2: b
+      q2-->q2: a
+      q1-->q3: λ
+      q3-->q1: a
+      q2-->q3:a,b
+
+
+```
+</center>
+
+Para construir um AFD $D_1$ que seja equivalente a $N_1$ devemos primeiro determinar os estados de D mapeando as transições. Sabendo que o estado 1 tem uma transição lambda para 3 então para o método rápido levamos em consideração o estado {1,3} primeiro.
+
+|Estados | a | b |
+|---|---|---|
+1, 3| 1 |2 |
+2 | 2,3 | 3 |
+3 | 1 | $\oslash$ |
+2,3 | 1,2,3 | 3 |
+1,2,3 | 1,2,3 | 2,3 |
+
+
+```mermaid
+  stateDiagram-v2
+  direction LR
+    q1:|{1,3}|
+    q2: {2}
+    q3: {3}
+    q4: {2,3}
+    q5: {1,2,3}
+    q6: Ø
+      [*] --> q1
+      q1-->q1:a
+      q1-->q2:b
+      q3-->q1:a
+      q2-->q4:a
+      q2-->q3:b
+      
+      q3-->q6:b
+      q4-->q3:b
+      q4-->q5:a
+      q5-->q4:b
+      q6-->q6:a,b
+```
+
+### 1.3.5 Fecho sob as operações regulares
+
+**Teorema**: A classe de linguagens regulares é fechada sob operação de união.
+
+**Teorema**: A classe de linguagens regulares é fechada sob operação de concatenação.
+
+**Teorema**: A classe de linguagens regulares é fechada sob operação de estrela.
+
+Explicações pagina 60
+
+
+## 1.4 Expressões Regulares
+
+### 1.4.1 Definição 
+
+Seja $\Sigma$ um alfabeto, então:
+* Se a $ \epsilon$ $\Sigma$, então a é uma **expressão regular**
+* Se $\lambda$ é a palavra nula, então $\lambda$ é uma **expressão regular**
+* Se $\oslash$ é o conjunto vazio, então $\oslash$ é uma **expressão regular**
+* Se R1 e R2 são expressões regulares, então(R1 $\cup$ R2) e (R1 • R2) são expressões regulares
+* Se R1 é uma expressão regular, então ($R1^*$) é uma **expressão regular**.
+
+$\lambda$ versus $\oslash$:
+* $\lambda$: antes representava uma palavra, a palavra vazia, mas aqui, como ER, é a ER que tem como linguagem um conjunto unitário, cujo único elemento é a palavra vazia.
+* $\oslash$: aqui, como ER, representa um conjunto vazio, então não tem nenhuma palavra.
+
+## Linguagens Não-regulares
