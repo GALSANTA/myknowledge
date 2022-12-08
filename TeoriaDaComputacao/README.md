@@ -27,6 +27,16 @@ Sou Fernando Gabriel M. da Silva, atualmente estudante de computação pela UFCG
             </li>
         </ul>
     <li> Linguagens Livres-do-Contexto </li>
+    <ul>
+        <li>2.1 Gramáticas Livres-do-Contexto</li>
+        <ul>
+            <li>2.1.1 Definição formal de uma gramática livre-do-contexto</li>
+            <li>2.1.2 Projetando gramáticas livres-do-contexto</li> 
+            <li>2.1.3 Ambiguidade</li>  
+            <li>2.1.4 Forma normal de Chomsky</li>  
+        </ul>
+        <li>2.2 Autômato com pilha</li>
+    </ul>
 </ol>
 
 ## Referências

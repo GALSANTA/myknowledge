@@ -51,8 +51,23 @@ A desvantagem da realocação usando registradores base e limit é a necessidade
 
 
 ### 3.2.3 Manuseando memória livre
-## 3.2 Memória virtual
-### 3.2.1 Paginação
+
+
+## 3.3 Memória virtual
+
+A idéia de usar registradores base e limit para criar abstrações de espaço de endereçamento tem um problema: gerenciar software que demandam muita memória. A solução adotada na década de 1960 foi particionar os programas em pequenas peças chamadas de overlays. 
+
+Quando um programa iniciava na memória tudo  gerenciado pelo gerenciador overlay que, por sua vez, rodava como overlay 0 quando isso terminava o gerenciador overlay chamada o overlay 1 acima na do overlay 0 na memória. Os sistemas overlay eram muitos complexos, permitindo muitos overlays na memória de uma vez e, além disso, matinha os overlays em disco e faziam o swapping deles para a memória RAM.
+
+O trabalho de fazer o swapping dos overlays era do sistema operacial, mas o trabalho de quebrar o o programa em várias partes era feita manualmente pelos programadores, sendo uma grande fonte de bug. Alguns programadores eram bons nisso e não demorou muito tempo até que todo o trabalho ficasse para o sistema operacional.
+
+O método inventado por Fothringham em 1961 que solucinou esse problema ficou conhecido como memória virtual. A idéia básica por trás da memória virtual é que cada programa tem seu próprio espaço de endereçamento que é particionado em pedaços menores chamados de paginas. Cada página é um arranjo contínuo de endereços. Essas páginas são mapeadas na memória física, mas nem todas precisam estar necessariamente na memória física para que o programa seja executado. Quando o programa referência parte dele que está na memória física ele executa normalmente, caso não esteja, o sistema operacional é acionado para que recupere a parte que falta e execute novamente a instrução que havia falhado.
+
+Na essência, a memória virtual é uma generalização dos registradores base e limit, garantindo que todo o espaço de endereçamento possa ser mapeado para a memória física. Funciona muito bem com multi-programação.
+
+### 3.3.1 Paginação
+
+
 ### 3.2.2 Page tables
 ## 3.3 Algoritmos de paginação
 ### 3.3.4 Pagle Tables for large memories
