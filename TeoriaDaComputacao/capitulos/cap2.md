@@ -15,7 +15,6 @@ A coleção de linguagens associadas com gramáticas livres-do-contexto são den
 Segue um exemplo de uma gramática livre-do-contexto chamada $G_1$.
 
 
-
 <center>
 
 $A \longrightarrow 0A1$
@@ -48,33 +47,34 @@ Você também pode apresentar a mesma informação pictorialmente com uma **árv
 
 ```mermaid
   stateDiagram-v2
-    r10: 0
-    r20: 0
-    r30: 0
-    r40: 0
-    q1:A
-    q2: A
-    q3: A
-    q4: A
-    q5: B
-    q6: #
-    r11: 1
-    r21: 1
-    r31: 1
-    r41: 1
-      q1-->r11: 
-      q1-->r10: 
-      q1-->q2: 
-      q2-->r21: 
-      q2-->r20: 
-      q2-->q3: 
-      q3-->r31: 
-      q3-->r30: 
-      q3-->q4: 
-      q4-->r41: 
-      q4-->r40: 
-      q4-->q5: 
-      q5-->q6: 
+  r10: 0
+  r20: 0
+  r30: 0
+  r40: 0
+  q1:A
+  q2: A
+  q3: A
+  q4: A
+  q5: B
+  q6: #
+  r11: 1
+  r21: 1
+  r31: 1
+  r41: 1
+    [*] --> q1
+    q1--> r11 
+    q1--> r10 
+    q1--> q2 
+    q2--> r21 
+    q2--> r20 
+    q2--> q3 
+    q3--> r31 
+    q3--> r30 
+    q3--> q4 
+    q4--> r41 
+    q4--> r40 
+    q4--> q5 
+    q5--> q6 
 ```
 </center>
 
@@ -102,3 +102,14 @@ Uma gramática livre-do-contexto é uma 4-upla ($V , \Sigma , R, S$), onde:
 <br/> 
 
 ## 2.2 Autômato com pilha
+## 2.3 Linguagens não-livres-do-contexto
+
+### O lema do bombeamento para linguagens livres-do-contexto
+
+<br/>
+
+> **Teorema** <br/>
+*Lema do bombeamento para linguagens livres-do-contexto*. Se $A$ é uma linguagem livre-do-contexto, então existe um número p (o comprimento do bombeamento) onde, se $s$ é uma cadeia qualquer em $A$ de comprimento $p$, então $s$ poder ser dividida em cindo partes $s = uv^ixy^iz$ satisfazendo as condições: <br/>
+<br/> 1. para cada $i \geq 0, uv^ixy^iz \in A$ <br/> 2. $|vy| > 0$ <br/> $3.|vxy| \leq p$ 
+
+
